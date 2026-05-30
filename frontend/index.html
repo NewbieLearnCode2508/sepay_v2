@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>2S Store - Shop Tài Khoản Game Uy Tín</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Swiper CSS cho slider -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Phần Header: Logo + Menu + Các biểu tượng hành động -->
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <div class="logo">
+            <a href="/"><i class="fas fa-gamepad"></i> 2S<span>Store</span></a>
+          </div>
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="/">Trang chủ</a></li>
+              <li><a href="#" id="shopLink">Cửa hàng</a></li>
+              <li><a href="#">Khuyến mãi</a></li>
+              <li><a href="#">Hướng dẫn</a></li>
+              <li><a href="#">Liên hệ</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <div class="user-area">
+              <div id="authSectionHeader" class="auth-links">
+                <a href="#" id="loginLinkHeader">Đăng nhập</a> /
+                <a href="#" id="registerLinkHeader">Đăng ký</a>
+              </div>
+              <div id="userMenu" class="user-menu hidden">
+                <span id="usernameDisplay"></span>
+                <div class="user-dropdown">
+                  <a href="#" id="logoutBtnHeader">Đăng xuất</a>
+                </div>
+              </div>
+            </div>
+            <div class="cart-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cartCount">0</span>
+            </div>
+          </div>
+          <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Slider Banner -->
+    <section class="hero-slider">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide"
+            style="
+              background-image: url(&quot;https://via.placeholder.com/1920x600/1e3c2c/ffffff?text=Sale+Up+To+50%25&quot;);
+            "
+          >
+            <div class="slide-content">
+              <h2>Giảm giá lớn</h2>
+              <p>Giảm đến 50% cho tất cả tài khoản Liên Quân</p>
+              <a href="#" class="btn-primary">Mua ngay</a>
+            </div>
+          </div>
+          <!-- Thêm các slide khác tương tự -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </section>
+
+    <!-- Phần Auth Modal (Form Đăng nhập/Đăng ký) -->
+    <div id="authModal" class="modal hidden">
+      <div class="modal-content auth-card">
+        <span class="close-modal">&times;</span>
+        <h2><i class="fas fa-wallet"></i> Ví điện tử</h2>
+        <input
+          type="text"
+          id="authUsername"
+          class="auth-input"
+          placeholder="Tên đăng nhập"
+        />
+        <input
+          type="password"
+          id="authPassword"
+          class="auth-input"
+          placeholder="Mật khẩu"
+        />
+        <button id="loginBtn" class="auth-btn">
+          <i class="fas fa-sign-in-alt"></i> Đăng nhập
+        </button>
+        <div class="auth-switch" id="switchToRegister">
+          Chưa có tài khoản? Đăng ký
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần Hiển thị App (sau khi đăng nhập) -->
+    <div id="appSection" class="app-section hidden">
+      <!-- Sidebar + Main Content -->
+      <div class="app-container">
+        <aside class="sidebar">
+          <div class="user-balance-card">
+            <div class="balance-label"><i class="fas fa-coins"></i> Số dư</div>
+            <div class="balance-number">
+              <span id="balanceSidebar">0</span><small> VND</small>
+            </div>
+            <button id="refreshBalanceBtn" class="refresh-balance">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </div>
+          <nav class="sidebar-nav">
+            <ul>
+              <li>
+                <a href="#" class="active" data-tab="deposit"
+                  ><i class="fas fa-qrcode"></i> Nạp tiền</a
+                >
+              </li>
+              <li>
+                <a href="#" data-tab="shop"
+                  ><i class="fas fa-store"></i> Cửa hàng</a
+                >
+              </li>
+              <li>
+                <a href="#" data-tab="history"
+                  ><i class="fas fa-history"></i> Lịch sử mua</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </aside>
+        <main class="main-content">
+          <!-- Tab NẠP TIỀN -->
+          <div id="depositTab" class="tab-content active">
+            <div class="deposit-card">
+              <h3>
+                <i class="fas fa-hand-holding-usd"></i> Nạp tiền qua chuyển
+                khoản
+              </h3>
+              <div class="amount-input-group">
+                <input
+                  type="number"
+                  id="amount"
+                  placeholder="Số tiền (VND)"
+                  value="100000"
+                />
+                <button id="depositBtn">
+                  <i class="fas fa-gift"></i> Tạo mã nạp
+                </button>
+              </div>
+              <div id="qrSection" class="qr-container hidden">
+                <h4>
+                  <i class="fas fa-qrcode"></i> Quét mã QR để chuyển khoản
+                </h4>
+                <img id="qrImg" class="qr-img" src="" alt="QR" />
+                <p>
+                  Nội dung chuyển khoản:
+                  <span id="orderCode" class="order-code-badge"></span>
+                </p>
+                <div id="statusMsg" class="status-msg">
+                  <i class="fas fa-hourglass-half"></i> Đang chờ thanh toán...
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab MUA SẮM -->
+          <div id="shopTab" class="tab-content">
+            <div class="shop-header">
+              <h2>Tài khoản game</h2>
+              <div class="filter-bar">
+                <select id="gameFilter">
+                  <option value="all">Tất cả game</option>
+                  <option value="Liên Quân Mobile">Liên Quân Mobile</option>
+                  <option value="Free Fire">Free Fire</option>
+                  <option value="Genshin Impact">Genshin Impact</option>
+                </select>
+              </div>
+            </div>
+            <div id="productsGrid" class="products-grid"></div>
+          </div>
+
+          <!-- Tab LỊCH SỬ -->
+          <div id="historyTab" class="tab-content">
+            <div class="history-table-wrapper">
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Sản phẩm</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Tổng tiền</th>
+                    <th>Ngày mua</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="historyBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h4>Về chúng tôi</h4>
+            <p>
+              2S Store - Nơi cung cấp tài khoản game uy tín hàng đầu Việt Nam.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Liên hệ</h4>
+            <p><i class="fas fa-envelope"></i> support@2sstore.com</p>
+            <p><i class="fab fa-facebook"></i> Facebook.com/2sstore</p>
+          </div>
+          <div class="footer-col">
+            <h4>Chính sách</h4>
+            <ul>
+              <li><a href="#">Bảo hành</a></li>
+              <li><a href="#">Bảo mật</a></li>
+              <li><a href="#">Điều khoản</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

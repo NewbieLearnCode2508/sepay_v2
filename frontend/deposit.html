@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nạp tiền - 2S Store</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="common.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-inner">
+          <div class="logo">
+            <a href="/">2S<span>Store</span></a>
+          </div>
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="/">Trang chủ</a></li>
+              <li><a href="/shop">Cửa hàng</a></li>
+              <li><a href="/deposit">Nạp tiền</a></li>
+              <li><a href="/history">Lịch sử</a></li>
+              <li><a href="/change-password">Đổi mật khẩu</a></li>
+              <li><a href="/contact">Liên hệ</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <div id="authSectionHeader" class="auth-links">
+              <a href="/login">Đăng nhập</a> /
+              <a href="/login?register=1">Đăng ký</a>
+            </div>
+            <div id="userMenu" class="user-menu hidden">
+              <span id="usernameDisplay"></span>
+              <div class="user-dropdown">
+                <a href="/change-password">Đổi mật khẩu</a>
+                <a href="#" id="logoutBtn">Đăng xuất</a>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <div class="deposit-card">
+        <h3>
+          <i class="fas fa-hand-holding-usd"></i> Nạp tiền qua chuyển khoản
+        </h3>
+        <div class="amount-input-group">
+          <input
+            type="number"
+            id="amount"
+            placeholder="Số tiền (VND)"
+            value="100000"
+          />
+          <button id="depositBtn">
+            <i class="fas fa-gift"></i> Tạo mã nạp
+          </button>
+        </div>
+        <div id="qrSection" class="qr-container hidden">
+          <h4><i class="fas fa-qrcode"></i> Quét mã QR để chuyển khoản</h4>
+          <img id="qrImg" class="qr-img" src="" alt="QR" />
+          <p>
+            Nội dung chuyển khoản:
+            <strong id="orderCode" class="order-code-badge"></strong>
+          </p>
+          <p class="note" style="color: #b91c1c; font-size: 0.8rem">
+            Chuyển đúng số tiền và nội dung để cộng dư tự động
+          </p>
+          <div id="statusMsg" class="status-msg">
+            <i class="fas fa-hourglass-half"></i> Đang chờ thanh toán...
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <h4>Về chúng tôi</h4>
+            <p>2S Store - Shop tài khoản game uy tín</p>
+          </div>
+          <div class="footer-col">
+            <h4>Liên hệ</h4>
+            <p><i class="fas fa-envelope"></i> support@2sstore.com</p>
+            <p><i class="fab fa-facebook"></i> Facebook.com/2sstore</p>
+          </div>
+          <div class="footer-col">
+            <h4>Chính sách</h4>
+            <ul>
+              <li><a href="/privacy">Chính sách bảo mật</a></li>
+              <li><a href="/terms">Điều khoản sử dụng</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="common.js"></script>
+    <script src="deposit.js"></script>
+  </body>
+</html>

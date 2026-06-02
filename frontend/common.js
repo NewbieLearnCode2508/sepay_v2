@@ -61,3 +61,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) logoutBtn.addEventListener('click', logout);
 });
+
+// Xử lý menu mobile
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const navMenu = document.querySelector('.nav-menu');
+if (mobileBtn && navMenu) {
+    mobileBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+    });
+    // Đóng menu khi click ra ngoài
+    document.addEventListener('click', function (e) {
+        if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+            navMenu.classList.remove('active');
+        }
+    });
+}
